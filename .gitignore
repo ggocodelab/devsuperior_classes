@@ -13,6 +13,8 @@ local.properties
 .settings/
 .loadpath
 .recommenders
+.classpath
+.project
 
 # External tool builders
 .externalToolBuilders/
@@ -93,6 +95,12 @@ local.properties
 hs_err_pid*
 replay_pid*
 
+# Build Files
+bin/
+out/
+build/
+target/
+
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
@@ -100,6 +108,7 @@ replay_pid*
 !.vscode/launch.json
 !.vscode/extensions.json
 !.vscode/*.code-snippets
+*.code-workspace
 
 # Local History for Visual Studio Code
 .history/
@@ -112,4 +121,10 @@ replay_pid*
 .history
 .ionide
 
+# System Files
+.DS_Store
+Thumbs.db
+
+# Log Files
+*.log
 # End of https://www.toptal.com/developers/gitignore/api/eclipse,java,visualstudiocode
