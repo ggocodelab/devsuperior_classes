@@ -127,4 +127,6 @@ Thumbs.db
 
 # Log Files
 *.log
+# Test
+/src/test/
 # End of https://www.toptal.com/developers/gitignore/api/eclipse,java,visualstudiocode
