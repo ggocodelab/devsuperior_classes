@@ -1,11 +1,14 @@
 package com.ggocodelab.program06.entities;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -19,19 +22,21 @@ public class User {
 	private String phone;
 	private LocalDate birthDate;
 	private String password;
-	private String roles;
+	
+	@OneToMany(mappedBy = "client")
+	private List<Order> orders = new ArrayList<>();
 	
 	public User() {
 	}
 
-	public User(Long id, String name, String email, String phone, LocalDate birthDate, String password, String roles) {
+	public User(Long id, String name, String email, String phone, LocalDate birthDate, String password) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
 		this.birthDate = birthDate;
 		this.password = password;
-		this.roles = roles;
+		
 	}
 
 	public Long getId() {
@@ -82,11 +87,8 @@ public class User {
 		this.password = password;
 	}
 
-	public String getRoles() {
-		return roles;
+	public List<Order> getOrders() {
+		return orders;
 	}
-
-	public void setRoles(String roles) {
-		this.roles = roles;
-	}
+	
 }
