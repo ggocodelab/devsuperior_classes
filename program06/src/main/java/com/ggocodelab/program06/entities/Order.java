@@ -18,7 +18,7 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="tb_oder")
+@Table(name="tb_order")
 public class Order {
 	
 	@Id
@@ -26,7 +26,7 @@ public class Order {
 	private Long id;
 	
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
-	private Instant monument;
+	private Instant moment;
 	
 	private OrderStatus status;
 	
@@ -43,9 +43,9 @@ public class Order {
 	public Order() {
 	}
 
-	public Order(Long id, Instant monument, OrderStatus status, User client, Payment payment) {
+	public Order(Long id, Instant moment, OrderStatus status, User client, Payment payment) {
 		this.id = id;
-		this.monument = monument;
+		this.moment = moment;
 		this.status = status;
 		this.client = client;
 		this.payment = payment;
@@ -60,11 +60,11 @@ public class Order {
 	}
 
 	public Instant getMonument() {
-		return monument;
+		return moment;
 	}
 
 	public void setMonument(Instant monument) {
-		this.monument = monument;
+		this.moment = monument;
 	}
 
 	public OrderStatus getStatus() {
