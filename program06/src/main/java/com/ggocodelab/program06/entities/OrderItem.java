@@ -1,11 +1,7 @@
 package com.ggocodelab.program06.entities;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -16,9 +12,7 @@ public class OrderItem {
 	private OrderItemPk id = new OrderItemPk();
 	private Integer quantity;
 	private Double price;
-	
-	
-	
+		
 	public OrderItem() {}
 
 	public OrderItem(Order order, Product product,Integer quantity, Double price) {
