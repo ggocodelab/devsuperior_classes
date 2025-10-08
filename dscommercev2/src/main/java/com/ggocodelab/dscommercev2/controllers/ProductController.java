@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,12 +25,6 @@ public class ProductController {
 	@Autowired
 	private ProductService service;
 	
-//	@GetMapping(value = "/{id}")
-//	public ProductDTO findById(@PathVariable Long id) {
-//		ProductDTO dto = service.findById(1L);
-//		return dto;
-//	}
-	
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<ProductDTO> findById(@PathVariable Long id) {
 		ProductDTO dto = service.findById(id);
@@ -42,11 +37,6 @@ public class ProductController {
 		return ResponseEntity.ok(dto);
 	}
 	
-//	@PostMapping
-//	public ProductDTO insert(@RequestBody ProductDTO dto) {
-//		return service.insert(dto);		
-//	}
-	
 	@PostMapping
 	public ResponseEntity<ProductDTO> insert(@RequestBody ProductDTO dto) {
 		dto = service.insert(dto);
@@ -54,5 +44,11 @@ public class ProductController {
 				.path("/{id}").buildAndExpand(dto.getId())
 				.toUri();
 		return ResponseEntity.created(uri).body(dto);		
-	}	
+	}
+	
+	@PutMapping(value = "/{id}")
+	public ResponseEntity<ProductDTO> update(@PathVariable Long id, @RequestBody ProductDTO dto) {
+		dto = service.update(id, dto);
+		return ResponseEntity.ok(dto);
+	}
 }
