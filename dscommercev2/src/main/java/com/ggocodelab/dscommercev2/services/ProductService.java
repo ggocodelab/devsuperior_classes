@@ -11,6 +11,8 @@ import com.ggocodelab.dscommercev2.entities.Product;
 import com.ggocodelab.dscommercev2.repositories.ProductRepository;
 import com.ggocodelab.dscommercev2.services.exceptions.ResourceNotFoundException;
 
+import jakarta.persistence.EntityNotFoundException;
+
 @Service
 public class ProductService {
 	
@@ -38,12 +40,26 @@ public class ProductService {
 		return new ProductDTO(entity);
 	}
 	
+//	@Transactional
+//	public ProductDTO update(Long id, ProductDTO dto) {
+//		Product entity = repository.getReferenceById(id);		
+//		copyDtoToEntity(dto, entity);		
+//		entity = repository.save(entity);
+//		return new ProductDTO(entity);
+//	}
+	
 	@Transactional
 	public ProductDTO update(Long id, ProductDTO dto) {
-		Product entity = repository.getReferenceById(id);		
-		copyDtoToEntity(dto, entity);		
-		entity = repository.save(entity);
-		return new ProductDTO(entity);
+		Product entity = repository.getReferenceById(id);
+		try {
+			copyDtoToEntity(dto, entity);		
+			entity = repository.save(entity);
+			return new ProductDTO(entity);
+		} 
+		catch (EntityNotFoundException e) {
+			throw new ResourceNotFoundException("Recurso não encontrado");
+		}
+		
 	}
 
 	private void copyDtoToEntity(ProductDTO dto, Product entity) {
