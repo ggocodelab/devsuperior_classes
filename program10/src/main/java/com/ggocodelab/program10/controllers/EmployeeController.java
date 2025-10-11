@@ -32,10 +32,9 @@ public class EmployeeController {
 		return ResponseEntity.ok(obj);
 	}
 	
-	@GetMapping
+	@GetMapping(value = "/{id}/employees")
 	public ResponseEntity<List<EmployeeDepartmentDTO>> findEmployeesWithDepartments(){
 		List<EmployeeDepartmentDTO> list = service.findEmployeesWithDepartments();
 		return ResponseEntity.ok(list);
-	}	
-
+	}
 }
