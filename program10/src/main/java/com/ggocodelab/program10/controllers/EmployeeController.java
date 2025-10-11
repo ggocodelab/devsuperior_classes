@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ggocodelab.program10.dtos.EmployeeDTO;
@@ -32,9 +33,16 @@ public class EmployeeController {
 		return ResponseEntity.ok(obj);
 	}
 	
-	@GetMapping(value = "/{id}/employees")
+	@GetMapping
 	public ResponseEntity<List<EmployeeDepartmentDTO>> findEmployeesWithDepartments(){
 		List<EmployeeDepartmentDTO> list = service.findEmployeesWithDepartments();
 		return ResponseEntity.ok(list);
 	}
+	
+//	@GetMapping
+//	public ResponseEntity<List<EmployeeDTO>> findByName(@RequestParam(name = "name", defaultValue = "")String name){
+//		List<EmployeeDTO> result = service.findByName(name);
+//		return ResponseEntity.ok(result);
+//	}
+	
 }
