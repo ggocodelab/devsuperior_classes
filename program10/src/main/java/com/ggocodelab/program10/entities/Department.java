@@ -21,7 +21,7 @@ public class Department {
 	
 	private String name;
 	
-	@OneToMany(mappedBy = "department", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "department")
 	private List<Employee> employees = new ArrayList<>();
 	
 	public Department() {
