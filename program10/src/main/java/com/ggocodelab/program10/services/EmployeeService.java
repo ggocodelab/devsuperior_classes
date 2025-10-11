@@ -36,4 +36,12 @@ public class EmployeeService {
 		List<Employee> result = repository.findEmployeesWithDepartments();
 		return result.stream().map(x -> new EmployeeDepartmentDTO(x)).collect(Collectors.toList());
 	}
+	
+	@Transactional(readOnly = true)
+	public List<EmployeeDTO> findByName(String name) {
+		List<Employee> result = repository.findByName(name);
+		return result.stream().map(x -> new EmployeeDTO(x)).toList();
+	}
+	
+	
 }
