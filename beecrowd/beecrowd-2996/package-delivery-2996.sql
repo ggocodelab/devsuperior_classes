@@ -1,5 +1,3 @@
---IN PROGRESS
-
 SELECT p.year, 
 	   s.name AS sender, 
 	   r.name AS receiver
