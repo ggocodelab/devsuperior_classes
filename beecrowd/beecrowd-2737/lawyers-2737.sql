@@ -1,4 +1,4 @@
--- in progress
+-- Done
 -- Union All operator: https://www.w3schools.com/sql/sql_union_all.asp
 -- literal with column name: SELECT List - https://www.postgresql.org/docs/current/sql-select.html
 -- Order rows by positional identifiers: https://blog.mattclemente.com/2021/05/11/sql-group-order-by-column-position/
