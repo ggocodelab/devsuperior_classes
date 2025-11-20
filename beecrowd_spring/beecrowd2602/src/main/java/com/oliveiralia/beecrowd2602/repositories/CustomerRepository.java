@@ -10,8 +10,15 @@ import com.oliveiralia.beecrowd2602.projections.CustomerMinProjection;
 
 public interface CustomerRepository extends JpaRepository<Customer, Long>{
 	
+//	@Query(nativeQuery=true, value="SELECT name "
+//			+ "FROM customers "
+//			+ "WHERE state= :state")
+//	List<CustomerMinProjection> search1(String state);
+	
 	@Query(nativeQuery=true, value="SELECT name "
 			+ "FROM customers "
-			+ "WHERE state= :state")
+			+ "WHERE UPPER(state) = UPPER(:state)")
 	List<CustomerMinProjection> search1(String state);
+	
+	
 }
