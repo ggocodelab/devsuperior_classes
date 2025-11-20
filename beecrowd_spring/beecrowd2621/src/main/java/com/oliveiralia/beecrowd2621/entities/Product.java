@@ -7,13 +7,13 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "products")
+@Table(name="products")
 public class Product {
 	
 	@Id
 	private Long id;
 	private String name;
-	private Double amount;
+	private Integer amount;
 	private Double price;
 	
 	@ManyToOne
@@ -22,6 +22,8 @@ public class Product {
 	
 	public Product() {
 	}
+	
+	
 
 	public Long getId() {
 		return id;
@@ -39,11 +41,11 @@ public class Product {
 		this.name = name;
 	}
 
-	public Double getAmount() {
+	public Integer getAmount() {
 		return amount;
 	}
 
-	public void setAmount(Double amount) {
+	public void setAmount(Integer amount) {
 		this.amount = amount;
 	}
 
@@ -62,10 +64,4 @@ public class Product {
 	public void setProvider(Provider provider) {
 		this.provider = provider;
 	}
-
-	@Override
-	public String toString() {
-		return "Product [id=" + id + ", name=" + name + ", amount=" + amount + ", price=" + price + ", provider="
-				+ provider + "]";
-	}	
 }
