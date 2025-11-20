@@ -32,8 +32,16 @@ public class Beecrowd2602Application implements CommandLineRunner{
 		
 		List<CustomerMinProjection> list = repository.search1("rs");
 		List<CustomerMinDTO> result1 = list.stream().map(x -> new CustomerMinDTO(x)).collect(Collectors.toList());
-		
+		System.out.println("\n ***Resultado SQL: ");
 		for(CustomerMinDTO obj: result1) {
+			System.out.println(obj);
+		}
+		
+		System.out.println("\n\n");
+		
+		List<CustomerMinDTO> result2 = repository.search2("rs");
+		System.out.println("\n ***Resultado JPQL: ");
+		for(CustomerMinDTO obj : result2) {
 			System.out.println(obj);
 		}
 	}
